@@ -3,14 +3,14 @@
     @foreach ( $posts as $p )
     <div class="items-center bg-gray-900 ">
         <div
-            class="max-w-xl mx-auto scale-100 p-6 rounded-xl bg-gray-800/50 bg-gradient-to-bl from-gray-700/50 via-transparent shadow-xl shadow-red-500/20 hover:bg-gradient-to-tr motion-safe:hover:scale-[1.03] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500 hover:origin-bottom hover:-rotate-12">
-            <div class="relative flex items-center space-x-3 rounded-xl">
+            class="max-w-xl mx-auto scale-100 p-6 rounded-xl bg-gray-800/50 bg-gradient-to-bl from-gray-700/50 via-transparent shadow-xl shadow-red-500/20 hover:bg-gradient-to-tr motion-safe:hover:scale-[1.03] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
+            <div class="relative flex items-center space-x-4 rounded-xl">
                 <img class="flex-shrink-0 ml-4 h-12 w-16 rounded-xl shadow-md shadow-red-500 object-cover ring-2 ring-red-500"
                     src="image/profile.jpg">
                 <div class="flex-1">
                     <p class="text-lg font-bold text-red-500">{{ $p->user['name' ]}}</p>
                     {{-- <p class="truncate text-sm text-gray-600">JABATAN</p> --}}
-                    <p class="truncate text-sm italic text-gray-600">{{ $p->created_at->diffForHumans() }}</p>
+                    <p class="truncate text-sm font-semibold text-gray-500">{{ $p->created_at->diffForHumans() }}</p>
 
                 </div>
                 @if ($p->user->is(auth()->user()))
@@ -19,14 +19,13 @@
                         <x-dropdown placement="bottom-end">
                             <x-slot name="trigger">
                                 <button
-                                    class="flex items-center text-red-500 hover:bg-red-500 hover:text-gray-200 hover:rounded-xl">
+                                    class="flex items-center rounded-xl text-red-500 hover:bg-red-500 hover:text-gray-200">
                                     <div class="ml-1">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                             stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
                                             <path stroke-linecap="round" stroke-linejoin="round"
                                                 d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z" />
                                         </svg>
-
                                     </div>
                                 </button>
                             </x-slot>
