@@ -4,7 +4,7 @@
             {{ __('Dashboard') }}
         </h2>
     </x-slot>
-
+    
     <a href="#">
         <div class="fixed bottom-5 right-5">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3"
@@ -14,8 +14,9 @@
         </div>
     </a>
 
-    <div class="pt-12 pb-12">
+    <div class="pt-6 pb-12">
         <div class="max-w-3xl mx-4 sm:mx-auto sm:px-6 lg:px-8">
+            <livewire:post-form />
             <livewire:display-posts />
         </div>
     </div>

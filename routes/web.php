@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\EditPostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,7 +24,11 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('report', [PostController::class, 'index'])->name('report');
+Route::middleware('auth')->group(function () {
+    Route::get('report', [PostController::class, 'index'])->name('report');
+    Route::get('/edit/{id}', [EditPostController::class, 'edit']);
+    Route::put('/update/{id}', [EditPostController::class, 'update']);
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

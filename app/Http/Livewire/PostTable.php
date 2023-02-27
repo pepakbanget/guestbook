@@ -25,9 +25,9 @@ final class PostTable extends PowerGridComponent
         $this->showCheckBox();
 
         return [
-            Exportable::make('export')
+            Exportable::make('Report-GuestBook')
                 ->striped()
-                ->type(Exportable::TYPE_XLS,),
+                ->type(Exportable::TYPE_XLS),
             Header::make()->showSearchInput(),
             Footer::make()
                 ->showPerPage()
